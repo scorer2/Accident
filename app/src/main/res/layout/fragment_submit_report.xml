@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <TextView
+        android:id="@+id/txtLabel"
+         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:text="Submit Report View"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+    
+    <ImageView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_submit_report"
+        android:id="@+id/imageView3"
+        android:layout_below="@+id/txtLabel"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtDescription"
+        android:hint="Brief Descriptiton"
+        android:lines="3"
+        android:layout_marginBottom="55dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:id="@+id/btnSubmit"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/btnLaunchMap"
+        android:layout_alignEnd="@+id/btnLaunchMap" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Are you the driver involved?"
+        android:id="@+id/txtWho"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/imageView3" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="YES"
+        android:id="@+id/rdbtnYes"
+        android:checked="true"
+        android:layout_alignTop="@+id/txtWho"
+        android:layout_toLeftOf="@+id/btnLaunchMap"
+        android:layout_toStartOf="@+id/btnLaunchMap" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NO"
+        android:id="@+id/rdbtnNo"
+        android:layout_alignTop="@+id/rdbtnYes"
+        android:layout_toRightOf="@+id/rdbtnYes"
+        android:layout_toEndOf="@+id/rdbtnYes" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="@string/prompt_firstName"
+        android:ems="10"
+        android:id="@+id/txtName"
+        android:layout_below="@+id/txtWho"
+        android:layout_toStartOf="@+id/imageView3"
+        android:layout_toLeftOf="@+id/imageView3"
+        android:visibility="gone" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="@string/prompt_lastName"
+        android:ems="10"
+        android:id="@+id/txtLastName"
+        android:layout_alignTop="@+id/txtName"
+        android:layout_toRightOf="@+id/imageView3"
+        android:layout_toEndOf="@+id/imageView3"
+        android:visibility="gone" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="YES OR"
+        android:id="@+id/rdbtnUseGPS"
+        android:checked="true"
+        android:layout_alignTop="@+id/txtUseGPS"
+        android:layout_toRightOf="@+id/txtUseGPS"
+        android:layout_toEndOf="@+id/txtUseGPS" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Use your current location?"
+        android:id="@+id/txtUseGPS"
+        android:layout_alignTop="@+id/btnLaunchMap"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get Map"
+        android:id="@+id/btnLaunchMap"
+        android:layout_marginTop="44dp"
+        android:layout_below="@+id/rdbtnNo"
+        android:layout_toRightOf="@+id/rdbtnUseGPS"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+
+</RelativeLayout>

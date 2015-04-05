@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Title Here"
+        android:id="@+id/txtReportView"
+        android:height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/imgView"
+        android:layout_toEndOf="@+id/imgView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Driver here"
+        android:id="@+id/txtDriverName"
+        android:layout_below="@+id/txtReportView"
+        android:layout_alignLeft="@+id/txtReportView"
+        android:layout_alignStart="@+id/txtReportView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="DateCreated here"
+        android:id="@+id/txtDate"
+        android:layout_above="@+id/txtLocation"
+        android:layout_alignRight="@+id/txtLocation"
+        android:layout_alignEnd="@+id/txtLocation" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Location"
+        android:id="@+id/txtLocation"
+        android:layout_alignBottom="@+id/txtDriverName"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgView"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_report_list"
+        android:layout_alignBottom="@+id/txtDriverName" />
+
+</RelativeLayout>
