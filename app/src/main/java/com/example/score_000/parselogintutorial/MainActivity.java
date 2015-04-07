@@ -174,24 +174,32 @@ public class MainActivity extends Activity {
     public void displayView(int position) {
         // update the main content by replacing fragments
         Fragment fragment = null;
+        String fragmentTag = new String();
+        
         switch (position) {
             case 0:
                 fragment = new HomeFragment();
+                fragmentTag = "homeFragment";
                 break;
             case 1:
                 fragment = new RecentReportsFragment();
+                fragmentTag = "recentReportsFragment";
                 break;
             case 2:
                 fragment = new SubmitReportFragment();
+                fragmentTag = "submitReportFragment";
                 break;
             case 3:
                 fragment = new CustomerSupportFragment();
+                fragmentTag = "customerSupportFragment";
                 break;
             case 4:
                 fragment = new SettingsFragment();
+                fragmentTag = "settingsFragment";
                 break;
             case 5:
                 fragment = new AboutUsFragment();
+                fragmentTag = "aboutUsFragment";
                 break;
 
             default:
@@ -201,7 +209,9 @@ public class MainActivity extends Activity {
         if (fragment != null) {
             FragmentManager fragmentManager = getFragmentManager();
             fragmentManager.beginTransaction()
-                    .replace(R.id.frame_container, fragment).commit();
+                    .replace(R.id.frame_container, fragment, fragmentTag)
+                    .addToBackStack(fragmentTag)
+                    .commit();
 
             // update selected item and title, then close the drawer
             mDrawerList.setItemChecked(position, true);

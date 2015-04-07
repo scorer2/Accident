@@ -77,10 +77,11 @@ public class MapActivity extends Activity {
             @Override
             public void onClick(View view) {
                 geoPoint = new ParseGeoPoint(newPos.latitude, newPos.longitude);
-                SubmitReportFragment obj = new SubmitReportFragment();
+                // SubmitReportFragment obj = new SubmitReportFragment();
+                // finding explicitly the submitReportFragment fragment.
+                SubmitReportFragment obj = (SubmitReportFragment) getFragmentManger()
+                    .findFragmentByTag("submitReportFragment");
                 obj.geoPoint = geoPoint;
-
-
             }
         });
     }
