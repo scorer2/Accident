@@ -89,8 +89,7 @@ public class SignUpActivity extends Activity {
                     emailAddressView.setError(getResources().getString(R.string.error_field_required));
                 }
 
-                if (!isValidEmail(emailAddressView.getText().toString()))
-                {
+                if (!isValidEmail(emailAddressView.getText().toString())) {
                     validationError = true;
                     //validationErrorMessage.append(getResources().getString(R.string.error_blank_emailAddress));
                     emailAddressView.requestFocus();
@@ -145,6 +144,7 @@ public class SignUpActivity extends Activity {
                 user.setEmail(emailAddressView.getText().toString());
                 user.put("FirstName", firstNameView.getText().toString());
                 user.put("LastName", lastNameView.getText().toString());
+                user.put("Role", "user");////
 
                 // Call the Parse signup method
                 user.signUpInBackground(new SignUpCallback() {
@@ -158,13 +158,11 @@ public class SignUpActivity extends Activity {
                             if (e.getMessage().startsWith("u")) {
                                 usernameView.requestFocus();
                                 usernameView.setError(getResources().getString(R.string.error_userName_taken));
-                            }
-                            else{
+                            } else {
                                 emailAddressView.requestFocus();
                                 emailAddressView.setError(getResources().getString(R.string.error_invalid_email));
                             }
-                        }
-                        else {
+                        } else {
                             // Start an intent for the dispatch activity
                             Intent intent = new Intent(SignUpActivity.this, DispatchActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -189,7 +187,7 @@ public class SignUpActivity extends Activity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
-    });
+        });
     }
 
     private boolean isEmpty(EditText etText) {

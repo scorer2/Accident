@@ -78,12 +78,68 @@
     <!-- Content Description -->
     <string name="desc_list_item_icon">Item Icon</string>
 
-    <!-- Spinner items -->
+    <!-- Spinner1 items -->
     <string-array name="insuranceArray">
-        <item>Select your plan:</item>
+        <item>1. Select your plan:</item>
         <item>Liability Insurance</item>
         <item>Premium Liability</item>
         <item>Full Coverage Auto Insurance</item>
+    </string-array>
+
+    <!-- Spinner1 items -->
+    <string-array name="carMakeArray">
+        <item>Here</item>
+        <item>Alfa Romeo</item>
+        <item>Aston Martin</item>
+        <item>Audi</item>
+        <item>Bentley</item>
+        <item>BMW</item>
+        <item>Bugatti</item>
+        <item>Buick</item>
+        <item>Cadillac</item>
+        <item>Chevrolet</item>
+        <item>Citroën</item>
+        <item>Chrysler</item>
+        <item>Dacia</item>
+        <item>Dodge</item>
+        <item>Ferrari</item>
+        <item>Fiat</item>
+        <item>Ford</item>
+        <item>GMC</item>
+        <item>Honda</item>
+        <item>Hyundai</item>
+        <item>Infiniti</item>
+        <item>Jaguar</item>
+        <item>Jeep</item>
+        <item>Kia</item>
+        <item>Lada</item>
+        <item>Lamborghini</item>
+        <item>Lancia</item>
+        <item>Land Rover</item>
+        <item>Lexus</item>
+        <item>Lincoln</item>
+        <item>Maserati</item>
+        <item>Mazda</item>
+        <item>McLaren</item>
+        <item>Mercedes-Benz</item>
+        <item>MINI</item>
+        <item>Mitsubishi</item>
+        <item>Nissan</item>
+        <item>Opel</item>
+        <item>Peugeot</item>
+        <item>Porsche</item>
+        <item>Renault</item>
+        <item>Rolls-Royce</item>
+        <item>Saab</item>
+        <item>SEAT</item>
+        <item>Škoda</item>
+        <item>Smart</item>
+        <item>Subaru</item>
+        <item>Suzuki</item>
+        <item>Tesla</item>
+        <item>Toyota</item>
+        <item>Volkswagen</item>
+        <item>Volvo</item>
     </string-array>
 
     <string-array name="bloodType">

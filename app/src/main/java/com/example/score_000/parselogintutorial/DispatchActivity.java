@@ -21,7 +21,7 @@ import com.parse.ParseUser;
 public class DispatchActivity extends Activity {
 
     @Override
-    public void onCreate(Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Check if there is current user info
 
@@ -31,11 +31,10 @@ public class DispatchActivity extends Activity {
                     if (e == null) {
                         ParseUser currUser = (ParseUser) object;
                         boolean emailVerified = currUser.getBoolean("emailVerified");
-                        if (emailVerified){
+                        if (emailVerified) {
                             // Email is verified so Start an intent for the logged in activity
                             startActivity(new Intent(DispatchActivity.this, MainActivity.class));
-                        }
-                        else{
+                        } else {
                             final AlertDialog.Builder builder = new AlertDialog.Builder(DispatchActivity.this);
                             builder.setTitle("Please verify your email!");
                             // set message
@@ -57,7 +56,7 @@ public class DispatchActivity extends Activity {
                                     new DialogInterface.OnClickListener() {
 
                                         public void onClick(DialogInterface dialog,
-                                                            int which){
+                                                            int which) {
                                             ParseUser.getCurrentUser().logOut();
                                             startActivity(new Intent(DispatchActivity.this, DispatchActivity.class));
                                         }
@@ -89,14 +88,12 @@ public class DispatchActivity extends Activity {
                             // Show Alert Dialog
                             alert.show();
                         }
-                    }
-                    else {
+                    } else {
                         // Failure!
                     }
                 }
             });
-        }
-        else {
+        } else {
             // Start and intent for the logged out activity
             startActivity(new Intent(this, SignUpOrLoginActivity.class));
         }

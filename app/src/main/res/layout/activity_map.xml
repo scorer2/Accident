@@ -28,4 +28,19 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="     Tap and hold"
+        android:id="@+id/txtMapDesc"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/map"
+        android:lines="2"
+        android:layout_toRightOf="@+id/btnMapCancel"
+        android:textAlignment="center"
+        android:singleLine="false"
+        android:layout_toLeftOf="@+id/btnSaveMap"
+        android:layout_toStartOf="@+id/btnSaveMap" />
+
 </RelativeLayout>

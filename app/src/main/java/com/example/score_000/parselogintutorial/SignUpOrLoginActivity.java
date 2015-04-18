@@ -14,7 +14,7 @@ import android.widget.Button;
 public class SignUpOrLoginActivity extends Activity {
 
     @Override
-    public void onCreate(Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup_or_login);
 
@@ -33,5 +33,9 @@ public class SignUpOrLoginActivity extends Activity {
                 startActivity(new Intent(SignUpOrLoginActivity.this, SignUpActivity.class));
             }
         });
+    }
+
+    public void onBackPressed() {
+        this.finish();
     }
 }

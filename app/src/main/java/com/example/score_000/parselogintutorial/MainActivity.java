@@ -2,8 +2,10 @@ package com.example.score_000.parselogintutorial;
 
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
@@ -25,7 +27,7 @@ import com.parse.ParseUser;
 import java.util.ArrayList;
 
 public class MainActivity extends Activity {
-
+    Fragment fragment = null;
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -42,6 +44,8 @@ public class MainActivity extends Activity {
 
     private ArrayList<NavDrawerItem> navDrawerItems;
     private NavDrawerListAdapter adapter;
+    Double lat = .0;
+    Double lng = .0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,10 +120,23 @@ public class MainActivity extends Activity {
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
-        if (savedInstanceState == null) {
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            lat = extras.getDouble("lat");
+            lng = extras.getDouble("lng");
+            displayView(2);
+        } else if (savedInstanceState == null) {
             // on first time display Home Profile View (0)
-            displayView(0);////show Home View
+            displayView(0);////show Home View/////(1)
         }
+    }
+
+    public Double getLat() {
+        return lat;
+    }
+
+    public Double getLng() {
+        return lng;
     }
 
     /**
@@ -149,8 +166,32 @@ public class MainActivity extends Activity {
         // Handle action bar actions click
         switch (item.getItemId()) {
             case R.id.action_settings:
-                ParseUser.getCurrentUser().logOut();
-                startActivity(new Intent(MainActivity.this, DispatchActivity.class));
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Are you sure you want to Log Out?");
+                // set message
+                builder.setCancelable(false);
+                builder.setPositiveButton("YES",
+                        new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface dialog,
+                                                int which) {
+                                ParseUser.getCurrentUser().logOut();
+                                startActivity(new Intent(MainActivity.this, DispatchActivity.class));
+                            }
+                        });
+
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                        // TODO Auto-generated method stub
+                        // close the dialog box
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog alert = builder.create();
+                // Show Alert Dialog
+                alert.show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -172,44 +213,51 @@ public class MainActivity extends Activity {
      * Diplaying fragment view for selected nav drawer list item
      */
     public void displayView(int position) {
-        // update the main content by replacing fragments
-        Fragment fragment = null;
+// update the main content by replacing fragments
+
+        String fragmentTag = new String();
         switch (position) {
             case 0:
                 fragment = new HomeFragment();
+                fragmentTag = "homeFragment";
                 break;
             case 1:
                 fragment = new RecentReportsFragment();
+                fragmentTag = "recentReportsFragment";
                 break;
             case 2:
                 fragment = new SubmitReportFragment();
+                fragmentTag = "submitReportFragment";
                 break;
             case 3:
                 fragment = new CustomerSupportFragment();
+                fragmentTag = "customerSupportFragment";
                 break;
             case 4:
                 fragment = new SettingsFragment();
+                fragmentTag = "settingsFragment";
                 break;
             case 5:
                 fragment = new AboutUsFragment();
+                fragmentTag = "aboutUsFragment";
                 break;
-
             default:
                 break;
         }
-
         if (fragment != null) {
             FragmentManager fragmentManager = getFragmentManager();
             fragmentManager.beginTransaction()
-                    .replace(R.id.frame_container, fragment).commit();
+                    .replace(R.id.frame_container, fragment, fragmentTag)
+                    .addToBackStack(fragmentTag)
+                    .commit();
 
-            // update selected item and title, then close the drawer
+// update selected item and title, then close the drawer
             mDrawerList.setItemChecked(position, true);
             mDrawerList.setSelection(position);
             setTitle(navMenuTitles[position]);
             mDrawerLayout.closeDrawer(mDrawerList);
         } else {
-            // error in creating fragment
+// error in creating fragment
             Log.e("MainActivity", "Error in creating fragment");
         }
     }

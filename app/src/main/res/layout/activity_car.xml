@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner2"
+        android:layout_alignTop="@+id/txtCarMake"
+        android:layout_toRightOf="@+id/txtCarMake"
+        android:layout_toEndOf="@+id/txtCarMake" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Select your car make:"
+        android:id="@+id/txtCarMake"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="41dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtCarModel"
+        android:layout_below="@+id/spinner2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="36dp"
+        android:layout_toLeftOf="@+id/spinner2"
+        android:layout_toStartOf="@+id/spinner2"
+        android:hint="Enter Model(*)" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtCarColor"
+        android:layout_below="@+id/txtCarModel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/txtCarModel"
+        android:layout_alignEnd="@+id/txtCarModel"
+        android:hint="Enter Color(*)"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtLicensePlate"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/txtCarColor"
+        android:layout_alignEnd="@+id/txtCarColor"
+        android:layout_marginTop="10dp"
+        android:hint="License Plate # (*)" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtVIN"
+        android:layout_below="@+id/txtLicensePlate"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/txtLicensePlate"
+        android:layout_alignEnd="@+id/txtLicensePlate"
+        android:layout_marginTop="10dp"
+        android:hint="VIN Registration(*)" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/txtCarYear"
+        android:layout_below="@+id/txtVIN"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:hint="Model Year(*)" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save Car"
+        android:id="@+id/btnSaveCar"
+        android:layout_below="@+id/txtCarYear"
+        android:layout_marginTop="36dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>
